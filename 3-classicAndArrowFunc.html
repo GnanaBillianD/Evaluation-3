@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+<body>
+<script>
+let arrowFunction= () =>{
+    console.log(this);//print the global window 
+}
+
+document.addEventListener("click", arrowFunction);
+
+
+function classicFunction(){
+    console.log(this)//print the document vaue
+}
+    document.addEventListener("click", classicFunction)
+
+
+
+//If we change the second function to an arrow function, ‘this’ now inherits its binding from the parent function
+document.addEventListener('click', function() {
+  console.log(`First this:`);
+  console.log(this);
+   setTimeout(() => {
+    console.log(`Second this:`);
+    console.log(this);
+},0)
+})
+</script>
+</body>
+</html>
